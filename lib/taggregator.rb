@@ -6,7 +6,7 @@ module Taggregator
   included do
   end
   
-  # the basics
+  # the basics, from the current plugin
   
 private
   # don't look
