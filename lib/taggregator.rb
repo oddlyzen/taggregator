@@ -186,7 +186,9 @@ module MongoMapper
         # creating tag clouds
         def tags_with_weight_for(context, conditions={})
           conditions = {:sort => '_id'}.merge(conditions)
-          MongoMapper.database.collection(aggregation_collection_for(context)).find({:value => {"$gt" => 0 }}, conditions).to_a.map{ |t| [t["_id"], t["value"]] }
+          MongoMapper.database.collection(aggregation_collection_for(context)).find({:value => {"$gt" => 0 }}, conditions).
+            to_a.map{ |t| [t["_id"], t["value"]] }.
+            sort{ |a,b| b[1] <=> a[1] }
         end
 
         def get_tag_separator_for(context)
