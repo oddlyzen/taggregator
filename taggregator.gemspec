@@ -5,9 +5,9 @@
 
 Gem::Specification.new do |s|
   s.name = %q{taggregator}
-  s.version = "0.0.2.dev"
+  s.version = "0.0.3"
 
-  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Coates"]
   s.date = %q{2011-07-21}
   s.description = %q{Taggable in context and aggregation of tags for MongoMapper. Adds weight and distribution convenience methods to models in which it is included. Uses MongoDB's increment/decrement ($inc/$dec) to keep real-time counts of individual tags in context with optional type. Based on 'Mongoid Taggable With Context' (https://github.com/aq1018/mongoid_taggable_with_context).}
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/taggregator.rb",
+    "lib/taggregator/instance_methods.rb",
     "taggregator.gemspec",
     "test/helper.rb",
     "test/test_taggregator.rb"
