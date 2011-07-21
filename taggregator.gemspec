@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{taggregator}
-  s.version = "0.0.1.dev"
+  s.version = "0.0.2.dev"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Coates"]
