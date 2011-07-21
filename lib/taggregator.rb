@@ -1,3 +1,9 @@
+module MongoMapper
+  module Plugins
+    autoload :Taggregator, 'taggregator'
+  end
+end
+
 module Taggregator
   extend ActiveSupport::Concern
   
