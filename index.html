@@ -49,10 +49,11 @@
       Taggable in Context Plugin for MongoMapper
     </div>
 
-    <p>Adds tagging with context and aggregation of tags for **MongoMapper**. Adds weight and distribution convenience methods to models in which it is included. Uses **MongoDB**'s increment/decrement (`$inc`/`$dec`) to keep real-time counts of individual tags in context with optional type. Based on [Mongoid Taggable With Context](https://github.com/aq1018/mongoid_taggable_with_context).
-
-**Taggregator** is very easy to use. Just include the MongoMapper plugin in your model the normal way and call `taggable`, like so:
-```ruby
+    <p>Adds tagging with context and aggregation of tags for <strong>MongoMapper</strong>. Adds weight and distribution convenience methods to models in which it is included. Uses <strong>MongoDB</strong>'s increment/decrement (<code>$inc</code>/<code>$dec</code>) to keep real-time counts of individual tags in context with optional type. Based on <a href="https://github.com/aq1018/mongoid_taggable_with_context">Mongoid Taggable With Context</a>.</p>
+<p>
+<strong>Taggregator</strong> is very easy to use. Just include the MongoMapper plugin in your model the normal way and call <code>taggable</code>, like so:</p>
+<pre>
+<code>
 class Article
   include MongoMapper::Document
   plugin  MongoMapper::Plugins::Taggregator
@@ -65,14 +66,18 @@ class Article
 end
 
 a = Article.new
-```
-Tags are then set with a string by calling `a.tags = 'space separated tags'`. Tag separators default to a space character, but as you see in the above example, can be overridden for with any character or string of your choice. If we follow the lead of the example, we would set `a.ads` by calling `a.ads = 'comma,separated,tags'`. The call to taggable will also add the array representation of the taggable fields with context, accessible through `a.tags_array`, `a.keywords_array`, and `a.ads_array`. If you have an array of string tags and wish to set the tags array manually, you can (i.e., `a.ads_array = ['xmas', 'shopping', 'books']`). Just as setting the string a.ads will populate a.ads_array, setting the tags array will also populate the string representation of the tag list in context.
-
-The call to `taggable` will also allow you to do some pretty cool stuff now. You can get all articles tags with a call to `Article.tags` and all tags (in the 'keywords' context) with `Article.keywords`. If you would like to get a list of all keywords with the keyword's associated frequency/weight, simply do something like:
-```ruby
+</code>
+</pre>
+<p>
+Tags are then set with a string by calling <code>a.tags = 'space separated tags'</code>. Tag separators default to a space character, but as you see in the above example, can be overridden for with any character or string of your choice. If we follow the lead of the example, we would set <code>a.ads</code> by calling <code>a.ads = 'comma,separated,tags'</code>. The call to <code>taggable</code> will also add the array representation of the taggable fields with context, accessible through <code>a.tags_array</code>, <code>a.keywords_array</code>, and <code>a.ads_array</code>. If you have an array of string tags and wish to set the tags array manually, you can (i.e., <code>a.ads_array = ['xmas', 'shopping', 'books']</code>). Just as setting the string a.ads will populate <code>a.ads_array</code>, setting the tags array will also populate the string representation of the tag list in context.</p>
+<p>
+The call to <code>taggable</code> will also allow you to do some pretty cool stuff now. You can get all articles tags with a call to <code>Article.tags</code> and all tags (in the 'keywords' context) with <code>Article.keywords</code>. If you would like to get a list of all keywords with the keyword's associated frequency/weight, simply do something like:</p>
+<pre><code>
 Article.tags_with_weight_for :keywords
 => [["stocks", 4], ["finance", 4], ["banking", 3], ["bonds", 1]]
-```</p><h2>Dependencies</h2>
+</code></pre>
+
+<h2>Dependencies</h2>
 <p>For **Taggregator** development
 
 * shoulda
@@ -88,9 +93,12 @@ gem 'taggregator'
 <h2>License</h2>
 <p>MIT</p>
 <h2>Authors</h2>
-<p>Mark Coates<br/><br/>      </p>
+<p>Mark Coates
+<br/>
+<br/>      </p>
 <h2>Contact</h2>
-<p>Mark Coates (m@rkcoates.com)<br/>      </p>
+<p>Mark Coates (m@rkcoates.com)
+<br/>      </p>
 
 
     <h2>Download</h2>
