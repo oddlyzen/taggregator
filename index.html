@@ -9,7 +9,7 @@
     body {
       margin-top: 1.0em;
       background-color: #e0f8ff;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
+      font-family: 'Gil Sans', Arial, FreeSans, san-serif;
       color: #000000;
     }
     #container {
@@ -72,24 +72,26 @@ a = Article.new
 Tags are then set with a string by calling <code>a.tags = 'space separated tags'</code>. Tag separators default to a space character, but as you see in the above example, can be overridden for with any character or string of your choice. If we follow the lead of the example, we would set <code>a.ads</code> by calling <code>a.ads = 'comma,separated,tags'</code>. The call to <code>taggable</code> will also add the array representation of the taggable fields with context, accessible through <code>a.tags_array</code>, <code>a.keywords_array</code>, and <code>a.ads_array</code>. If you have an array of string tags and wish to set the tags array manually, you can (i.e., <code>a.ads_array = ['xmas', 'shopping', 'books']</code>). Just as setting the string a.ads will populate <code>a.ads_array</code>, setting the tags array will also populate the string representation of the tag list in context.</p>
 <p>
 The call to <code>taggable</code> will also allow you to do some pretty cool stuff now. You can get all articles tags with a call to <code>Article.tags</code> and all tags (in the 'keywords' context) with <code>Article.keywords</code>. If you would like to get a list of all keywords with the keyword's associated frequency/weight, simply do something like:</p>
-<pre><code>
-Article.tags_with_weight_for :keywords
+<pre><code>Article.tags_with_weight_for :keywords
 => [["stocks", 4], ["finance", 4], ["banking", 3], ["bonds", 1]]
 </code></pre>
 
 <h2>Dependencies</h2>
-<p>For **Taggregator** development
-
-* shoulda
-* bundler
-* jeweler
-* rcov
-* mongo_mapper</p>
+<p>For <strong>Taggregator</strong> development:
+<ul>
+	<li>shoulda</li>
+	<li>bundler</li>
+	<li>jeweler</li>
+	<li>rcov</li>
+	<li>mongo_mapper</li>
+</ul></p>
 <h2>Install</h2>
-<p>Add Taggregator to your Gemfile:
-```ruby
+
+<p>Add <strong>Taggregator</strong> to your Gemfile:</p>
+<pre><code>
 gem 'taggregator'
-```</p>
+</code></pre>
+
 <h2>License</h2>
 <p>MIT</p>
 <h2>Authors</h2>
