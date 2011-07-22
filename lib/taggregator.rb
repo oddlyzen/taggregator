@@ -157,6 +157,17 @@ module MongoMapper
             def changed_contexts
               tag_contexts & changes.keys.map(&:to_sym)
             end
+            
+            #tags for similar items
+            def similar?(oother)
+              #check tags, any repeated tgs, there maY be similarity, analyze keywords next
+            end 
+            
+            #an array returned with similar items
+            def find_similar
+              # check the tags and any other user intellige we may have
+            end
+            
           END
         end
 
