@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+
+  <title>oddlyzen/taggregator @ GitHub</title>
+
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      background-color: #e0f8ff;
+      font-family: Helvetica, Arial, FreeSans, san-serif;
+      color: #000000;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+    h1 { font-size: 3.8em; color: #1f0700; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 1.5em; color: #1f0700; }
+    h3 { text-align: center; color: #1f0700; }
+    a { color: #1f0700; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+    pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+  </style>
+</head>
+
+<body>
+  <a href="http://github.com/oddlyzen/taggregator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/oddlyzen/taggregator/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/oddlyzen/taggregator/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="http://github.com/oddlyzen/taggregator">taggregator</a>
+      <span class="small">by <a href="http://github.com/oddlyzen">oddlyzen</a></span></h1>
+
+    <div class="description">
+      Taggable in Context Plugin for MongoMapper
+    </div>
+
+    <p>Adds tagging with context and aggregation of tags for **MongoMapper**. Adds weight and distribution convenience methods to models in which it is included. Uses **MongoDB**'s increment/decrement (`$inc`/`$dec`) to keep real-time counts of individual tags in context with optional type. Based on [Mongoid Taggable With Context](https://github.com/aq1018/mongoid_taggable_with_context).
+
+**Taggregator** is very easy to use. Just include the MongoMapper plugin in your model the normal way and call `taggable`, like so:
+```ruby
+class Article
+  include MongoMapper::Document
+  plugin  MongoMapper::Plugins::Taggregator
+
+  key :title, String
+  key :body, String
+  taggable
+  taggable :keywords
+  taggable :ads, :separator => ','
+end
+
+a = Article.new
+```
+Tags are then set with a string by calling `a.tags = 'space separated tags'`. Tag separators default to a space character, but as you see in the above example, can be overridden for with any character or string of your choice. If we follow the lead of the example, we would set `a.ads` by calling `a.ads = 'comma,separated,tags'`. The call to taggable will also add the array representation of the taggable fields with context, accessible through `a.tags_array`, `a.keywords_array`, and `a.ads_array`. If you have an array of string tags and wish to set the tags array manually, you can (i.e., `a.ads_array = ['xmas', 'shopping', 'books']`). Just as setting the string a.ads will populate a.ads_array, setting the tags array will also populate the string representation of the tag list in context.
+
+The call to `taggable` will also allow you to do some pretty cool stuff now. You can get all articles tags with a call to `Article.tags` and all tags (in the 'keywords' context) with `Article.keywords`. If you would like to get a list of all keywords with the keyword's associated frequency/weight, simply do something like:
+```ruby
+Article.tags_with_weight_for :keywords
+=> [["stocks", 4], ["finance", 4], ["banking", 3], ["bonds", 1]]
+```</p><h2>Dependencies</h2>
+<p>For **Taggregator** development
+
+* shoulda
+* bundler
+* jeweler
+* rcov
+* mongo_mapper</p>
+<h2>Install</h2>
+<p>Add Taggregator to your Gemfile:
+```ruby
+gem 'taggregator'
+```</p>
+<h2>License</h2>
+<p>MIT</p>
+<h2>Authors</h2>
+<p>Mark Coates<br/><br/>      </p>
+<h2>Contact</h2>
+<p>Mark Coates (m@rkcoates.com)<br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/oddlyzen/taggregator/zipball/master">zip</a> or
+      <a href="http://github.com/oddlyzen/taggregator/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/oddlyzen/taggregator</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/oddlyzen/taggregator">oddlyzen/taggregator</a>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>
