@@ -11,4 +11,5 @@ group :development do
   gem "jeweler", "~> 1.6.2"
   gem "rcov", ">= 0"
   gem 'mongo_mapper', '~> 0.9.0'
+  gem 'pry'
 end

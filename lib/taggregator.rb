@@ -157,17 +157,6 @@ module MongoMapper
             def changed_contexts
               tag_contexts & changes.keys.map(&:to_sym)
             end
-            
-            #tags for similar items
-            def similar?(oother)
-              #check tags, any repeated tgs, there maY be similarity, analyze keywords next
-            end 
-            
-            #an array returned with similar items
-            def find_similar
-              # check the tags and any other user intellige we may have
-            end
-            
           END
         end
 
@@ -177,10 +166,6 @@ module MongoMapper
 
         def tag_options_for(context)
          taggable_with_context_options[context]
-        end
-
-        def tags_for(context, conditions={})
-          raise AggregationStrategyMissing
         end
 
         # Collection name for storing results of tag count aggregation
@@ -224,7 +209,19 @@ module MongoMapper
         def tagged_with(context, tags)
           tags = convert_string_to_array(tags, get_tag_separator_for(context)) if tags.is_a? String
           array_field = tag_options_for(context)[:array_field]
-          all_in(array_field => tags)
+          where(:"#{array_field}".in => tags)
+        end
+        
+        # tags for similar items
+        # def similar?(article)
+        # end 
+        
+        # an array returned with similar items
+        def find_similar(article, options={:through => :tags})
+          context = options[:through]
+          array_field = tag_options_for(options[:through])[:array_field]
+          tags = article[array_field]
+          where(:"#{array_field}".in => tags)
         end
 
         # Helper method to convert a String to an Array based on the

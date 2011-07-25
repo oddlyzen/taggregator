@@ -1,10 +1,10 @@
 # Taggregator
 
-Adds tagging with context and aggregation of tags for MongoMapper. Adds weight and distribution convenience methods to models in which it is included. Uses MongoDB's increment/decrement ($inc/$dec) to keep real-time counts of individual tags in context with optional type. Based on 'Mongoid Taggable With Context' (https://github.com/aq1018/mongoid_taggable_with_context).
+Adds tagging in context (and aggregation of those tags) to your MongoMapper models. Tag weight and distribution methods make it easy to find real-time taxonomical hotspots in datastore. **Taggregator** Uses MongoDB's increment/decrement (`$inc`/`$dec`) to keep real-time counts of individual tags in context with optional type. Based on [Mongoid Taggable With Context](https://github.com/aq1018/mongoid_taggable_with_context "The Progenitor.").
 
-## Usage
+## Basic Usage
 
-**Taggregator** is very easy to use. Just include the MongoMapper plugin in your model the normal way and call `taggable`, like so:
+**Taggregator** is easy to use. Just include the MongoMapper plugin in your model the normal way and call `taggable`, like so:
 
     class Article
       include MongoMapper::Document
@@ -19,9 +19,9 @@ Adds tagging with context and aggregation of tags for MongoMapper. Adds weight a
 
     a = Article.new
 
-Tags are then set with a string by calling `a.tags = 'space separated tags'`. Tag separators default to a space character, but as you see in the above example, can be overridden for with any character or string of your choice. If we follow the lead of the example, we would set `a.ads` by calling `a.ads = 'comma,separated,tags'`. The call to `taggable` will also add the array representation of the taggable fields with context, accessible through `a.tags_array`, `a.keywords_array`, and `a.ads_array`. If you have an array of string tags and wish to set the tags array manually, you can (i.e., `a.ads_array = ['xmas', 'shopping', 'books']`). Just as setting the string `a.ads` will populate `a.ads_array`, setting the tags array will also populate the string representation of the tag list in context.
+Tags are then set with a string by calling `a.tags = 'space separated tags'`. The tag separator character defaults to the space character, but as you see in the above example, it can be overridden with any character or string of your choice. If we follow the lead of the example, we would set `a.ads` by calling `a.ads = 'comma,separated,tags'`. The call to `taggable` injects an array representation of the model's taggable fields with context, accessible through `a.tags_array`, `a.keywords_array`, and `a.ads_array`. If you have an array of tags (strings) and wish to set the tags array manually, you can (i.e., `a.ads_array = ['xmas', 'shopping', 'books']`). When the string `a.ads` is set, `a.ads_array` is populated with the individual tags. Likewise, setting the tags array populates the string representation of the tag list for that context.
 
-The call to `taggable` will also allow you to do some pretty cool stuff now. You can get all articles tags with a call to `Article.tags` and all tags (in the 'keywords' context) with `Article.keywords`. If you would like to get a list of all keywords with the keyword's associated frequency/weight, simply do something like:
+The call to `taggable` will mixes in some cool stuff. You can get all articles tags with a call to `Article.tags` and all tags (in the 'keywords' context) with `Article.keywords`. If you would like to get a list of all keywords with the keyword's associated frequency/weight, try this:
 
     Article.tags_with_weight_for :keywords
     => [["stocks", 4], ["finance", 4], ["banking", 3], ["bonds", 1]]
@@ -38,5 +38,5 @@ The call to `taggable` will also allow you to do some pretty cool stuff now. You
 
 ## Copyright
 
-Copyright © 2011 Mark Coates. See LICENSE.txt for further details.
-
+Copyright © 2011 Mark Coates and dtime, inc. (http://dtime.com). See LICENSE.txt for further details.
+ 
