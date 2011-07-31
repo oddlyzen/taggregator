@@ -17,7 +17,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'taggregator'
 
-MongoMapper.database = "testing"
+MongoMapper.database = "testing_taggregator"
 
 require 'models/article'
 
