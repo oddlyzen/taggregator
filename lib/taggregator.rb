@@ -6,8 +6,8 @@ module MongoMapper
       extend ActiveSupport::Concern
 
       included do
-        class_inheritable_reader :taggable_with_context_options
-        write_inheritable_attribute(:taggable_with_context_options, {})
+        class_attribute :taggable_with_context_options
+        self.taggable_with_context_options = {}
         delegate "convert_string_to_array",     :to => 'self.class'
         delegate "convert_array_to_string",     :to => 'self.class'
         delegate "get_tag_separator_for",       :to => 'self.class'
@@ -51,9 +51,9 @@ module MongoMapper
           tags_array_field = options[:array_field]
 
           # register / update settings
-          class_options = taggable_with_context_options || {}
+          class_options = self.taggable_with_context_options || {}
           class_options[tags_field] = options
-          write_inheritable_attribute(:taggable_with_context_options, class_options)
+          self.taggable_with_context_options = class_options
 
           # setup fields & indexes
           key tags_field.to_sym, String, :default => ""
