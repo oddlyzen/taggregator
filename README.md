@@ -38,5 +38,5 @@ The call to `taggable` will mixes in some cool stuff. You can get all articles t
 
 ## Copyright
 
-Copyright © 2011 Mark Coates and dtime, inc. (http://dtime.com). See LICENSE.txt for further details.
+Copyright © 2011 Mark Coates. See LICENSE.txt for further details.
  
