@@ -21,7 +21,7 @@ Adds tagging in context (and aggregation of those tags) to your MongoMapper mode
 
 Tags are then set with a string by calling `a.tags = 'space separated tags'`. The tag separator character defaults to the space character, but as you see in the above example, it can be overridden with any character or string of your choice. If we follow the lead of the example, we would set `a.ads` by calling `a.ads = 'comma,separated,tags'`. The call to `taggable` injects an array representation of the model's taggable fields with context, accessible through `a.tags_array`, `a.keywords_array`, and `a.ads_array`. If you have an array of tags (strings) and wish to set the tags array manually, you can (i.e., `a.ads_array = ['xmas', 'shopping', 'books']`). When the string `a.ads` is set, `a.ads_array` is populated with the individual tags. Likewise, setting the tags array populates the string representation of the tag list for that context.
 
-The call to `taggable` will mixes in some cool stuff. You can get all articles tags with a call to `Article.tags` and all tags (in the 'keywords' context) with `Article.keywords`. If you would like to get a list of all keywords with the keyword's associated frequency/weight, try this:
+The call to `taggable` mixes in some cool stuff. You can get all articles tags with a call to `Article.tags` and all tags (in the 'keywords' context) with `Article.keywords`. If you would like to get a list of all keywords with the keyword's associated frequency/weight, try this:
 
     Article.tags_with_weight_for :keywords
     => [["stocks", 4], ["finance", 4], ["banking", 3], ["bonds", 1]]
