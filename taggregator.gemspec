@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Mark Coates}]
+  s.authors = [%q{BitPimpin' LLC}]
   s.date = %q{2011-08-08}
   s.description = %q{Adds tagging with context and aggregation of tags for MongoMapper. Adds weight and distribution convenience methods to models in which it is included. Uses MongoDB's increment/decrement ($inc/$dec) to keep real-time counts of individual tags in context with optional type. Based on 'Mongoid Taggable With Context' (https://github.com/aq1018/mongoid_taggable_with_context).}
   s.email = %q{mark.coates@gmail.com}

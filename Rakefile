@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{Bad-ass tagging intelligence for your document tagging in MongoMapper.}
   gem.description = %Q{Adds tagging with context and aggregation of tags for MongoMapper. Adds weight and distribution convenience methods to models in which it is included. Uses MongoDB's increment/decrement ($inc/$dec) to keep real-time counts of individual tags in context with optional type. Based on 'Mongoid Taggable With Context' (https://github.com/aq1018/mongoid_taggable_with_context).}
   gem.email = "mark.coates@gmail.com"
-  gem.authors = ["Mark Coates"]
+  gem.authors = ["BitPimpin' LLC"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
