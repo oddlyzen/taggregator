@@ -1,4 +1,4 @@
-# Taggregator
+# Taggregator [![Build Status](https://secure.travis-ci.org/oddlyzen/taggregator.png)](http://travis-ci.org/oddlyzen/taggregator)
 
 Adds tagging in context (and aggregation of those tags) to your MongoMapper models. Tag weight and distribution methods make it easy to find real-time taxonomical hotspots in datastore. **Taggregator** Uses MongoDB's increment/decrement (`$inc`/`$dec`) to keep real-time counts of individual tags in context with optional type. Based on [Mongoid Taggable With Context](https://github.com/aq1018/mongoid_taggable_with_context "The Progenitor.").
 
