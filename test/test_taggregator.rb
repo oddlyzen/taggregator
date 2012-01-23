@@ -3,12 +3,12 @@ require 'helper'
 class TestTaggregator < Test::Unit::TestCase
   def setup
     @articles = [
-    (@home_and_garden = Article.new( title: 'Is your refrigerator running? Better catch it',
-                                    body: @lipsum,
-                                    authors: ['Thomas Mann', 'Jim Byrd'])),
-    (@golf_digest =    Article.new(  title: 'The Colonial: In Full Swing',
-                                    body: @lipsum,
-                                    authors: ['Rebecca Simmons']))
+    (@home_and_garden = Article.new(:title => 'Is your refrigerator running? Better catch it',
+                                    :body => @lipsum,
+                                    :authors => ['Thomas Mann', 'Jim Byrd'])),
+    (@golf_digest =     Article.new(:title => 'The Colonial: In Full Swing',
+                                    :body => @lipsum,
+                                    :authors => ['Rebecca Simmons']))
                 ]
     @home_and_garden.keywords = 'luxury household appliances'
     @home_and_garden.ads_array = ['LG Electronics', 'Kenneth Cole']
