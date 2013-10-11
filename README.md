@@ -38,5 +38,5 @@ The call to `taggable` mixes in some cool stuff. You can get all articles tags w
 
 ## Copyright
 
-Copyright © 2011 BitPimpin' LLC. See LICENSE.txt for further details.
+Copyright © 2011-2013 Mark Coates. See LICENSE.txt for further details.
  
