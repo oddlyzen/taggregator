@@ -1,6 +1,6 @@
 # Taggregator [![Gem Version](https://badge.fury.io/rb/taggregator.png)](http://badge.fury.io/rb/taggregator)
 
-Adds tagging in context (and aggregation of those tags) to your MongoMapper models. Tag weight and distribution methods make it easy to find real-time taxonomical hotspots in datastore. **Taggregator** Uses MongoDB's increment/decrement (`$inc`/`$dec`) to keep real-time counts of individual tags in context with optional type. Based on [Mongoid Taggable With Context](https://github.com/aq1018/mongoid_taggable_with_context "The Progenitor.").
+Adds tagging in context (and aggregation of those tags) to your MongoMapper models. Tag weight and distribution methods make it easy to find real-time taxonomical hotspots in datastore. **Taggregator** Uses MongoDB's increment/decrement (`$inc`/`$dec`) to keep real-time counts of individual tags in context with optional type. Based on [Mongoid Taggable With Context](https://github.com/lgs/mongoid_taggable_with_context "The Progenitor.").
 
 ## Basic Usage
 
@@ -38,5 +38,5 @@ The call to `taggable` mixes in some cool stuff. You can get all articles tags w
 
 ## Copyright
 
-Copyright © 2011-2013 Mark Coates. See LICENSE.txt for further details.
+Copyright © 2010-2018 Mark Coates. See LICENSE.txt for further details.
  
